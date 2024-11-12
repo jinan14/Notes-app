@@ -12,28 +12,28 @@ function Hero() {
   };
 
   return (
-    <div className='w-full flex h-[100vh]'>
-      <div className='w-[60%]'>
-        <img className='object-cover w-full h-full' src="/Hero2.jpg" alt="" />
+    <div className='w-full flex flex-col md:flex-row h-[100vh]'>
+      <div className='w-full md:w-[60%]'>
+        <img className='object-cover w-full h-[50vh] md:h-full' src="/Hero2.jpg" alt="" />
       </div>
 
       <div
-        className={`h-full flex flex-col gap-6 p-1 text-center w-[40%] ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}
+        className={`h-full flex flex-col gap-6 p-4 text-center w-full md:w-[40%] ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}
       >
         <div className='flex justify-end'>
           <button 
             onClick={handleToggleMode} 
             className="px-2 rounded-3xl mt-2 mr-1 py-2 bg-orange-300 text-white"
           >
-            {/* Render the appropriate icon based on isDarkMode */}
             {isDarkMode ? <IoSunny /> : <IoMoon />}
           </button>
         </div>
-        <div className='flex flex-col gap-6 m-auto items-center justify-center text-center'>
-          <h1 className={`font-semibold ${isDarkMode ? 'text-orange-300' : 'text-orange-500'}`}>
+        
+        <div className='flex flex-col gap-6 items-center justify-center m-auto text-center mx-auto'>
+          <h1 className={`font-semibold text-3xl ${isDarkMode ? 'text-orange-300' : 'text-orange-500'}`}>
             Thought Bubble
           </h1>
-          <p className={`font-medium ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>
+          <p className={`font-medium text-base md:text-lg ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>
             Welcome to the best notes app! <br /> The place where you free your thoughts
           </p>
           <div className='flex gap-3 mt-4'>

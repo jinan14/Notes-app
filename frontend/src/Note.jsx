@@ -31,33 +31,40 @@ function Note() {
   };
 
   return (
-    <div className='text-black hero h-full flex flex-col items-center justify-center p-11'>
-      <form onSubmit={handleCreateNote} className="flex flex-col gap-5 shadow-[20px] border-2 border-gray-700 h-auto w-80 rounded-[20px] p-6 m-auto max-w-sm backdrop-blur-2xl ">
-      <h2 className='text-orange-400 text-3xl font-semibold '>Create a New Note</h2>
+    <div className="hero h-full flex flex-col items-center justify-center p-4 sm:p-8">
+      <form 
+        onSubmit={handleCreateNote} 
+        className="flex flex-col gap-5 text-black shadow-lg border-2 border-gray-700 w-full max-w-md rounded-2xl p-6 backdrop-blur-2xl"
+      >
+        <h2 className="text-orange-400 text-2xl sm:text-3xl font-semibold text-center">Create a New Note</h2>
+  
         <input
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+          className="w-full px-3 py-2 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-gray-500"
           required
         />
+  
         <textarea
           placeholder="Content"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="w-full h-56 resize-none px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+          className="w-full h-40 sm:h-56 resize-none px-3 py-2 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-gray-500"
           required
         />
+  
         <button
           type="submit"
-          className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-[20px] focus:outline-none focus:shadow-outline"
+          className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-2xl focus:outline-none focus:shadow-outline"
         >
           Create Note
         </button>
       </form>
     </div>
   );
+  
 }
 
 export default Note;

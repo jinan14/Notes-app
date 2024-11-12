@@ -32,38 +32,44 @@ function Login() {
     };
 
     return (
-        <div className='hero h-full flex flex-col items-center justify-center p-11'>
-
-            <form onSubmit={handleSubmit} className="shadow-[20px] border-2 border-gray-700 h-auto w-80 rounded-[20px] p-6 m-auto max-w-sm backdrop-blur-2xl ">
-            <h1 className='text-orange-500 font-semibold text-3xl mb-5'>Login Page</h1>
-                <label className='flex flex-col gap-3 font-bold text-black'>
-                    Username:
-                    <input
-                        className="w-full px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </label>
-                <br />
-                <label className='flex flex-col gap-3 font-bold text-black'>
-                    Password:
-                    <input
-                        className="w-full px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </label>
-                <br />
-                <button
-                    type="submit"
-                    className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-[20px] focus:outline-none focus:shadow-outline">
-                    Login
-                </button>
-            </form>
+        <div className="hero h-full flex flex-col items-center justify-center p-4 md:p-11">
+          <form
+            onSubmit={handleSubmit}
+            className="border-2 border-gray-700 w-full max-w-xs md:max-w-sm lg:max-w-md rounded-[20px] p-6 mx-auto shadow-lg backdrop-blur-2xl"
+          >
+            <h1 className="text-orange-500 font-semibold text-2xl md:text-3xl mb-5 text-center">
+              Login Page
+            </h1>
+            <label className="flex flex-col gap-3 font-bold text-black">
+              Username:
+              <input
+                className="w-full px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+            <br />
+            <label className="flex flex-col gap-3 font-bold text-black">
+              Password:
+              <input
+                className="w-full px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+            <br />
+            <button
+              type="submit"
+              className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-[20px] focus:outline-none focus:shadow-outline"
+            >
+              Login
+            </button>
+          </form>
         </div>
-    );
+      );
+      
 }
 
 export default Login;

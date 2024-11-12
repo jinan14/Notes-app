@@ -39,52 +39,65 @@ function SignUp() {
     };
 
     return (
-        <div className='hero h-full flex flex-col items-center justify-center p-11 '>
-            <div className="w-full max-w-md p-8 m-auto backdrop-blur-3xl shadow-[20px] rounded-[20px] border border-transparent">
-                <h2 className="text-orange-500 font-semibold text-3xl text-center mb-5">Sign Up</h2>
-                {error && <p className="text-red-500 text-center mb-3">{error}</p>}
-                {success && <p className="text-green-600 text-center  mb-3">{success}</p>}
-                <form onSubmit={handleSubmit}  className="shadow-[20px] border-2 border-gray-700 h-auto w-80 rounded-[20px] p-6 m-auto max-w-sm backdrop-blur-2xl ">
-                    <div>
-                        <label  className='flex flex-col gap-3 font-bold text-black'>Email</label>
-                        <input
-                            type="text"
-                            value={Email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                           className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
-                        />
-                    </div>
-                    <div>
-                        <label  className='flex flex-col gap-3 font-bold text-black'>Username</label>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                           className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
-                        />
-                    </div>
-                    <div>
-                        <label  className='flex flex-col gap-3 font-bold text-black'>Password</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                           className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-[20px] focus:outline-none focus:shadow-outline"
-                    >
-                        Register
-                    </button>
-                </form>
-            </div>
+        <div className="hero h-full flex flex-col items-center justify-center p-4 sm:p-8 lg:p-11">
+          <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg p-6 sm:p-8 m-auto backdrop-blur-3xl shadow-lg rounded-[20px] border border-transparent">
+            <h2 className="text-orange-500 font-semibold text-2xl sm:text-3xl text-center mb-5">
+              Sign Up
+            </h2>
+            {error && <p className="text-red-500 text-center mb-3">{error}</p>}
+            {success && <p className="text-green-600 text-center mb-3">{success}</p>}
+      
+            <form
+              onSubmit={handleSubmit}
+              className="shadow-md border border-gray-300 rounded-[20px] p-4 sm:p-6backdrop-blur-lg"
+            >
+              <div className="mb-4">
+                <label className="flex flex-col gap-2 font-bold text-black">
+                  Email
+                </label>
+                <input
+                  type="text"
+                  value={Email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="flex flex-col gap-2 font-bold text-black">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="flex flex-col gap-2 font-bold text-black">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded-[20px] focus:outline-none focus:shadow-outline transition-colors duration-200"
+              >
+                Register
+              </button>
+            </form>
+          </div>
         </div>
-    );
+      );
+      
 }
 
 export default SignUp;

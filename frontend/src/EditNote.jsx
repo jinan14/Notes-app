@@ -46,30 +46,40 @@ function EditNote() {
     if (!note) return <div className='text-black font-bold text-3xl'>Loading...</div>;
 
     return (
-        <div className='text-black hero h-full flex flex-col items-center justify-center p-11'>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5 shadow-[20px] border-2 border-gray-700 h-auto w-80 rounded-[20px] p-6 m-auto max-w-sm backdrop-blur-2xl ">
-                <h2 className='text-orange-400 text-3xl font-semibold '>Edit Note</h2>
-                <input
-                    type="text"
-                    className="w-full px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Title"
-                />
-                <textarea
-                    value={content}
-                    className="w-full h-56 resize-none px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
-                    onChange={(e) => setContent(e.target.value)}
-                    placeholder="Content"
-                />
-                <button type="submit"
-                    className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-[20px] focus:outline-none focus:shadow-outline"
-                >
-                    Save
-                </button>
-            </form>
+        <div className="hero h-full flex flex-col items-center justify-center p-4 sm:p-8">
+          <form 
+            onSubmit={handleSubmit} 
+            className="flex flex-col text-black gap-5 shadow-lg border-2 border-gray-700 w-full max-w-md rounded-2xl p-6 backdrop-blur-2xl"
+          >
+            <h2 className="text-orange-400 text-2xl sm:text-3xl font-semibold text-center">Edit Note</h2>
+      
+            <input
+              type="text"
+              className="w-full px-3 py-2 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-gray-500"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Title"
+              required
+            />
+      
+            <textarea
+              value={content}
+              className="w-full h-40 sm:h-56 resize-none px-3 py-2 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-gray-500"
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Content"
+              required
+            />
+      
+            <button
+              type="submit"
+              className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-2xl focus:outline-none focus:shadow-outline"
+            >
+              Save
+            </button>
+          </form>
         </div>
-    );
+      );
+      
 }
 
 export default EditNote;
