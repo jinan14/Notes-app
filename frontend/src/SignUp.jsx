@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function SignUp() {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [Email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const navigate = useNavigate(); // Initialize navigate
@@ -23,7 +24,7 @@ function SignUp() {
             setSuccess('User registered successfully!');
             setName('');
             setPassword('');
-            
+
             // Navigate to the login page after successful registration
             setTimeout(() => {
                 navigate('/login');
@@ -38,35 +39,45 @@ function SignUp() {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 space-y-4 bg-white shadow-lg rounded-lg">
-                <h2 className="text-2xl font-bold text-center">Sign Up</h2>
-                {error && <p className="text-red-500 text-center">{error}</p>}
-                {success && <p className="text-green-500 text-center">{success}</p>}
-                <form onSubmit={handleSubmit} className="space-y-4">
+        <div className='hero h-full flex flex-col items-center justify-center p-11 '>
+            <div className="w-full max-w-md p-8 m-auto backdrop-blur-3xl shadow-[20px] rounded-[20px] border border-transparent">
+                <h2 className="text-orange-500 font-semibold text-3xl text-center mb-5">Sign Up</h2>
+                {error && <p className="text-red-500 text-center mb-3">{error}</p>}
+                {success && <p className="text-green-600 text-center  mb-3">{success}</p>}
+                <form onSubmit={handleSubmit}  className="shadow-[20px] border-2 border-gray-700 h-auto w-80 rounded-[20px] p-6 m-auto max-w-sm backdrop-blur-2xl ">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Username</label>
+                        <label  className='flex flex-col gap-3 font-bold text-black'>Email</label>
+                        <input
+                            type="text"
+                            value={Email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                           className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
+                        />
+                    </div>
+                    <div>
+                        <label  className='flex flex-col gap-3 font-bold text-black'>Username</label>
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                           className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Password</label>
+                        <label  className='flex flex-col gap-3 font-bold text-black'>Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                           className="w-full text-black px-3 py-2 border rounded-[20px] focus:outline-none focus:ring-2 focus:ring-gray-500"
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full px-4 py-2 font-bold text-white bg-indigo-600 rounded-lg hover:bg-indigo-500"
+                        className="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 mt-3 rounded-[20px] focus:outline-none focus:shadow-outline"
                     >
                         Register
                     </button>

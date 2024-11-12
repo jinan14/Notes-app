@@ -18,12 +18,12 @@ function Hero() {
       </div>
 
       <div
-        className={`h-full flex flex-col gap-6  text-center w-[40%] ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}
+        className={`h-full flex flex-col gap-6 p-1 text-center w-[40%] ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}
       >
         <div className='flex justify-end'>
           <button 
             onClick={handleToggleMode} 
-            className="px-4 rounded-3xl mt-2 py-2 bg-orange-300 text-white"
+            className="px-2 rounded-3xl mt-2 mr-1 py-2 bg-orange-300 text-white"
           >
             {/* Render the appropriate icon based on isDarkMode */}
             {isDarkMode ? <IoSunny /> : <IoMoon />}

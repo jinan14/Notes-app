@@ -6,6 +6,7 @@ import { FaPlus } from "react-icons/fa6";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 
 import axios from 'axios';
 
@@ -70,7 +71,7 @@ function Retrieve() {
 
     return (
         <div className='h-full hero'>
-            <div className='text-black flex justify-between items-center p-8 w-full backdrop-blur-xl'>
+            <div className='text-black flex justify-between items-center p-8 w-full backdrop-blur-xl shadow-[20px]'>
                 <button onClick={() => navigate('/note')} className="w-11 flex items-center justify-center bg-orange-400 hover:bg-orange-500 text-white font-bold p-2 rounded-[20px] focus:outline-none focus:shadow-outline"><FaPlus /></button>
 
                 <h2 className="text-3xl text-orange-400 font-bold ">Your Notes</h2>
@@ -83,9 +84,14 @@ function Retrieve() {
                         placeholder="Search notes..."
                     />
                     <button className="w-9 h-9 bg-orange-400 hover:bg-orange-500 text-white font-bold p-2 rounded-full focus:outline-none focus:shadow-outline"
-                    onClick={handleSearch}
+                        onClick={handleSearch}
                     ><IoSearch />
                     </button>
+                    <button 
+                    className="w-9 h-9 bg-red-500 hover:bg-red-600 flex items-center justify-center text-white font-bold p-2 rounded-full focus:outline-none focus:shadow-outline"
+                    onClick={() => navigate(`/login`)}
+                    > 
+                    <FiLogOut /></button>
                 </div>
             </div>
 
@@ -93,7 +99,7 @@ function Retrieve() {
                 {(filteredNotes.length > 0 ? filteredNotes : notess).map((note) => (
                     <div
                         key={note.id}
-                        className="border-black border flex flex-col p-4 mb-4 w-full max-w-md rounded-md shadow-sm backdrop-blur-3xl"
+                        className="border-black border flex flex-col p-4 mb-4 w-full max-w-md rounded-md shadow-sm backdrop-blur-xl"
                     >
                         <h3 className="font-bold text-black text-xl">{note.title}</h3>
                         <div className='flex justify-between'>
