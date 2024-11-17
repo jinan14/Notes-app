@@ -11,7 +11,11 @@ const port = 3000;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 app.use(express.json());
-app.use(cors()); // Allow requests from all origins
+app.use(cors({
+    origin: 'http://localhost:5173', // Update this with your frontend URL
+    credentials: true,
+}));
+
 
 // Middleware to protect routes
 const authenticateToken = (req, res, next) => {
@@ -191,20 +195,45 @@ app.patch('/note/edit/:id', authenticateToken, async (req, res) => {
     }
 });
 
-// Public route to get a note by ID
+// Generate a token for sharing a specific note
+app.post('/share/:id', (req, res) => {
+    const { id } = req.params;
+    try {
+        const shareToken = jwt.sign({ noteId: id }, process.env.SHARE_SECRET, { expiresIn: '1h' });
+        res.json({ shareToken });
+    } catch (error) {
+        res.status(500).json({ error: 'Error generating share token' });
+    }
+});
+
 app.get('/public/note/:id', async (req, res) => {
     const { id } = req.params;
+    const { token } = req.query;
+
+    if (!token) {
+        return res.status(400).json({ error: 'Token is required' });
+    }
 
     try {
+        // Verify the token
+        const decoded = jwt.verify(token, process.env.SHARE_SECRET);
+
+        // Check if the token’s noteId matches the requested note id
+        if (decoded.noteId !== parseInt(id)) {
+            return res.status(403).json({ error: 'Access denied' });
+        }
+
         const note = await prisma.note.findUnique({ where: { id: parseInt(id) } });
         if (!note) return res.status(404).json({ message: "Note not found" });
 
         res.json({ success: true, note });
     } catch (error) {
-        console.error('Error fetching note:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Token verification error:', error); // Log the error for debugging
+        res.status(500).json({ error: 'Invalid or expired token' });
     }
 });
+
+
 
 app.get('/notes/search', authenticateToken, async (req, res) => {
     const { userId } = req.user;

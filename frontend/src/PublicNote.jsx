@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -7,19 +5,34 @@ import axios from 'axios';
 function PublicNote() {
     const { id } = useParams();
     const [note, setNote] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchNote = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/public/note/${id}`);
+                // Retrieve the token from the URL query param
+                const token = new URLSearchParams(window.location.search).get('token');
+
+                if (!token) {
+                    throw new Error('Token is required');
+                }
+
+                // Make the request with the token included
+                const response = await axios.get(`http://localhost:3000/public/note/${id}`, {
+                    params: { token } // Send token as query parameter
+                });
+
                 setNote(response.data.note);
             } catch (error) {
                 console.error('Error fetching public note:', error);
+                setError(error.message); // Set error message to display
             }
         };
+
         fetchNote();
     }, [id]);
 
+    if (error) return <div>Error: {error}</div>;
     if (!note) return <div>Loading...</div>;
 
     return (

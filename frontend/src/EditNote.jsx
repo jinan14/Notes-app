@@ -43,7 +43,7 @@ function EditNote() {
         }
     };
 
-    if (!note) return <div className='text-black font-bold text-3xl'>Loading...</div>;
+    if (!note) return <div className='text-black font-bold text-3xl flex items-center justify-center mt-44'>Loading...</div>;
 
     return (
         <div className="hero h-full flex flex-col items-center justify-center p-4 sm:p-8">

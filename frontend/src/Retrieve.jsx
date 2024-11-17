@@ -40,24 +40,32 @@ function Retrieve() {
         navigate(`/edit/${id}`); // Navigate to the edit page for this note
     };
 
-    const handleShare = (id) => {
-        const shareableUrl = `${window.location.origin}/public/note/${id}`;
-        navigator.clipboard.writeText(shareableUrl)
-            //window.location.origin represents the base URL of the current site (e.g., http://localhost:3000 in development
-
-            ///public/note/${id}, we get a full URL that points to the public view of the note  
-
-            // line uses the Clipboard API to copy shareableUrl to the user's clipboard.
-
-            //navigator.clipboard.writeText() is an asynchronous function that copies text to the clipboard, allowing users to paste the link elsewhere.
-            .then(() => {
-                alert('Shareable link copied to clipboard!');
-            })
-            .catch((err) => {
-                console.error('Failed to copy shareable link: ', err);
-            });
-    };
-
+    const handleShare = async (id) => {
+      try {
+          // Use the correct backend server URL here
+          const response = await axios.post(`http://localhost:3000/share/${id}`);
+          const shareToken = response.data.shareToken;
+  
+          if (!shareToken) {
+              console.error('No shareToken returned from server');
+              alert('Failed to generate share token');
+              return;
+          }
+  
+          const shareableUrl = `${window.location.origin}/public/note/${id}?token=${shareToken}`;
+          
+          await navigator.clipboard.writeText(shareableUrl);
+          alert('Shareable link copied to clipboard!');
+      } catch (error) {
+          console.error('Failed to generate shareable link:', error);
+          alert('Error generating shareable link');
+      }
+  };
+  
+  
+  
+  
+  
     const handleSearch = async () => {
         try {
             const response = await axios.get(`http://localhost:3000/notes/search?query=${searchTerm}`, {
