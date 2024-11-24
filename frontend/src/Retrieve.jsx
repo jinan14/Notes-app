@@ -128,7 +128,6 @@ function Retrieve() {
                     </button>
                     <button
                       
-                      className="w-9 h-9 flex justify-center items-center bg-blue-400 hover:bg-blue-500 text-white font-bold p-2 rounded-full focus:outline-none focus:shadow-outline"
                     >
                       <FaShare />
                     </button>
