@@ -196,10 +196,6 @@ app.patch('/note/edit/:id', authenticateToken, async (req, res) => {
 });
 
 // Generate a token for sharing a specific note
-app.post('/share/:id', (req, res) => {
-   
-   
-});
 
 app.get('/public/note/:id', async (req, res) => {
     const { id } = req.params;
