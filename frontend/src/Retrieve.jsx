@@ -28,9 +28,7 @@ function Retrieve() {
         }
     }, [token, fetchNotes, navigate]);
 
-    const handleCreateNote = () => {
-        navigate('/note'); // Navigate to /note route
-    };
+   
 
    
 
