@@ -126,11 +126,7 @@ function Retrieve() {
                     >
                       <FaEdit />
                     </button>
-                    <button
-                      
-                    >
-                      <FaShare />
-                    </button>
+                   
                   </div>
                 </div>
               </div>
