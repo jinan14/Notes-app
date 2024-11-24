@@ -199,8 +199,7 @@ app.patch('/note/edit/:id', authenticateToken, async (req, res) => {
 app.post('/share/:id', (req, res) => {
     const { id } = req.params;
     try {
-        const shareToken = jwt.sign({ noteId: id }, process.env.SHARE_SECRET, { expiresIn: '1h' });
-        res.json({ shareToken });
+       
     } catch (error) {
         res.status(500).json({ error: 'Error generating share token' });
     }
