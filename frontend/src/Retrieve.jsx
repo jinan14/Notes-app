@@ -42,8 +42,7 @@ function Retrieve() {
   
           const shareableUrl = `${window.location.origin}/public/note/${id}?token=${shareToken}`;
           
-          await navigator.clipboard.writeText(shareableUrl);
-          alert('Shareable link copied to clipboard!');
+         
       
         
       
