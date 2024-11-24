@@ -30,7 +30,7 @@ function Retrieve() {
 
 
     const handleShare = async (id) => {
-      try {
+      
           // Use the correct backend server URL here
           const response = await axios.post(`http://localhost:3000/share/${id}`);
           const shareToken = response.data.shareToken;
@@ -44,9 +44,9 @@ function Retrieve() {
           
           await navigator.clipboard.writeText(shareableUrl);
           alert('Shareable link copied to clipboard!');
-      } catch (error) {
-          
-      }
+      
+        
+      
   };
   
     const handleSearch = async () => {
