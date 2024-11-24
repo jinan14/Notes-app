@@ -29,7 +29,24 @@ function Retrieve() {
     }, [token, fetchNotes, navigate]);
 
 
-    
+    const handleShare = async (id) => {
+      
+          // Use the correct backend server URL here
+          const response = await axios.post(`http://localhost:3000/share/${id}`);
+          const shareToken = response.data.shareToken;
+  
+          if (!shareToken) {
+              console.error('No shareToken returned from server');
+              return;
+          }
+  
+          const shareableUrl = `${window.location.origin}/public/note/${id}?token=${shareToken}`;
+          
+         
+      
+        
+      
+  };
   
     const handleSearch = async () => {
         try {
