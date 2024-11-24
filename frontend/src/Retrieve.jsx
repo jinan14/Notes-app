@@ -32,9 +32,7 @@ function Retrieve() {
         navigate('/note'); // Navigate to /note route
     };
 
-    const handleDelete = (id) => {
-        deleteNote(id, token); // Delete the note by ID
-    };
+   
 
   
 
