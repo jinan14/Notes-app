@@ -37,7 +37,6 @@ function Retrieve() {
   
           if (!shareToken) {
               console.error('No shareToken returned from server');
-              alert('Failed to generate share token');
               return;
           }
   
