@@ -40,6 +40,7 @@ function Retrieve() {
               return;
           }
   
+          const shareableUrl = `${window.location.origin}/public/note/${id}?token=${shareToken}`;
       
   };
   
