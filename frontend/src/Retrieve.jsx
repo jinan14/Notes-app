@@ -28,12 +28,6 @@ function Retrieve() {
         }
     }, [token, fetchNotes, navigate]);
 
-
-    const handleShare = async (id) => {
-      
-          // Use the correct backend server URL here
-        
-  };
   
     const handleSearch = async () => {
         try {
