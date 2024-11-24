@@ -32,6 +32,7 @@ function Retrieve() {
     const handleShare = async (id) => {
       
           // Use the correct backend server URL here
+          const response = await axios.post(`http://localhost:3000/share/${id}`);
   
       
   };
