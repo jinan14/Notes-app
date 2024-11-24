@@ -58,7 +58,7 @@ function Retrieve() {
           alert('Shareable link copied to clipboard!');
       } catch (error) {
           console.error('Failed to generate shareable link:', error);
-         
+          alert('Error generating shareable link');
       }
   };
   
