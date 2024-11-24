@@ -35,11 +35,6 @@ function Retrieve() {
           const response = await axios.post(`http://localhost:3000/share/${id}`);
           const shareToken = response.data.shareToken;
   
-          if (!shareToken) {
-              console.error('No shareToken returned from server');
-              alert('Failed to generate share token');
-              return;
-          }
   
           const shareableUrl = `${window.location.origin}/public/note/${id}?token=${shareToken}`;
           
