@@ -35,6 +35,11 @@ function Retrieve() {
           const response = await axios.post(`http://localhost:3000/share/${id}`);
           const shareToken = response.data.shareToken;
   
+          if (!shareToken) {
+              console.error('No shareToken returned from server');
+              return;
+          }
+  
       
   };
   
