@@ -45,7 +45,6 @@ function Retrieve() {
           await navigator.clipboard.writeText(shareableUrl);
           alert('Shareable link copied to clipboard!');
       } catch (error) {
-          console.error('Failed to generate shareable link:', error);
           
       }
   };
