@@ -198,7 +198,11 @@ app.patch('/note/edit/:id', authenticateToken, async (req, res) => {
 // Generate a token for sharing a specific note
 app.post('/share/:id', (req, res) => {
    
-    
+    try {
+       
+    } catch (error) {
+        res.status(500).json({ error: 'Error generating share token' });
+    }
 });
 
 app.get('/public/note/:id', async (req, res) => {
