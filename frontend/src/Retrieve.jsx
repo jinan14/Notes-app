@@ -36,7 +36,9 @@ function Retrieve() {
         deleteNote(id, token); // Delete the note by ID
     };
 
-  
+    const handleEdit = (id) => {
+        navigate(`/edit/${id}`); // Navigate to the edit page for this note
+    };
 
     const handleShare = async (id) => {
       try {
